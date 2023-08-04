@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <title>CDN技术和泛解析 | bozhu17</title>
+        <meta name="author" content="bozhu17" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>BOZHU17</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;BOZHU17</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                <div class="article">
+    <div>
+        <h1>CDN技术和泛解析</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/7/29
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="CDN技术"><a href="#CDN技术" class="headerlink" title="CDN技术"></a>CDN技术</h1><p>1.CDN的由来</p>
+<ul>
+<li>CND的全称是Content Delivery Network，即内容分发网络。使用户可就近取得所需内容，解决Internet网络拥挤的状况，提高网络用户的访问速度</li>
+</ul>
+<span id="more"></span>
+
+<p>2.CDN的原理</p>
+<ul>
+<li>为了可以更加方便的了解CDN是怎么一回事，我们可以通过下面几张图片尽心分析和理解</li>
+</ul>
+<blockquote>
+<p>首先我们来思考这个问题，如果服务器在上海，身处上海的用户和身处在新疆的用户访问响应速度是一样的吗？这个答案显然是否定的，首先两个人身处的地理位置不一样，数据发送到服务器的时间也是不一样的，所以上海用户相比较于新疆用户来说，访问服务器的速度更快，体验更舒服</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202307311450699.png" alt="image-20230731145018401"></p>
+<blockquote>
+<p>如果不解决这个问题的话，所有用户都只会访问本地的网址，为了解决这个问题，推出了CDN技术，简单来说，就是在每一个地区重新搭建了一个服务器，但是这个服务器上面存放着的都是静态网页，也就是不需要和数据库交互的数据，但是需要和数据库进行交互时，还是需要连接到数据库才行</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202307311516708.png" alt="image-20230731151600604"></p>
+<blockquote>
+<p>总的来说，CDN技术有以下几个优点：<br>一、提高网站性能和访问速度：由于CDN将内容分发到全球各地的节点上，用户可以从离自己最近的节点获取内容，从而减少网络延迟和带宽占用，提高网站的性能和访问速度。<br>二、减少服务器的负载：由于CDN将内容分发到全球各地的节点上，用户可以从离自己最近的节点获取内容，从而减少对服务器的请求，降低服务器的负载，提高网站的稳定性和可靠性。<br>三、提高网站的安全性：由于CDN将内容分发到全球各地的节点上，用户可以从离自己最近的节点获取内容，从而减少对源站的请求，提高网站的安全性，减少被攻击的风险。<br>四、提高用户体验：由于CDN可以提高网站的性能和访问速度，减少服务器的负载，提高网站的稳定性和可靠性，从而提高用户的访问体验，增加用户的满意度和忠诚度。</p>
+</blockquote>
+<h1 id="泛解析"><a href="#泛解析" class="headerlink" title="泛解析"></a>泛解析</h1><p>1、什么是泛域名解析</p>
+<blockquote>
+<p>泛域名解析是指将*.域名解析到同一IP。在域名前添加任何子域名，均可访问到所指向的WEB地址。也就是将 *.<a target="_blank" rel="noopener" href="http://xxx.com/">http://xxx.com</a>(*代表所有合法二级域名头,如:bbs www news)指向同一IP，服务器就同时绑定了所有.<a target="_blank" rel="noopener" href="http://xxx.com/">http://xxx.com</a> 的二级域名,不需要一个个绑定。例如:博客，电商平台的店铺，qq空间等。都是通过动态的二级域名的泛域名解析来实现的。</p>
+</blockquote>
+<p>2、和域名解析的区别</p>
+<blockquote>
+<p>泛域名解析是：*.域名解析到同一IP。<br>域名解析是：子域名.域名解析到同一IP。</p>
+</blockquote>
+<p>3、泛域名解析有什么用</p>
+<blockquote>
+<p>相信大家都发现类似５８同城这样的网站，成都的网址是<a target="_blank" rel="noopener" href="http://cd.58.com/">http://cd.58.com</a> 上海的是<a target="_blank" rel="noopener" href="http://sh.58.com/">http://sh.58.com</a> 类似的上千个网站，其实没有那么多个网站，域名前面那部分就是泛域名解析，相当于是传递一个参数，所有的域名实际上访问的都是一个网站，仅仅是传递了不一样的参数显示不一样的内容。</p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 bozhu17
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;bozhu17
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

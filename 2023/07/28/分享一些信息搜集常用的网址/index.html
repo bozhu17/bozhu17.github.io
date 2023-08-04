@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <title>DNS协议和常用的信息搜集网址 | bozhu17</title>
+        <meta name="author" content="bozhu17" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>BOZHU17</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;BOZHU17</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                <div class="article">
+    <div>
+        <h1>DNS协议和常用的信息搜集网址</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/7/28
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%B7%A5%E5%85%B7/" style="color: #ff7d73">工具</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="一、DNS协议"><a href="#一、DNS协议" class="headerlink" title="一、DNS协议"></a>一、DNS协议</h1><h3 id="1-什么是DNS"><a href="#1-什么是DNS" class="headerlink" title="1.什么是DNS"></a>1.什么是DNS</h3><ul>
+<li><p>在开始将一些常用的网址之前，我们先来学习一下什么叫做DNS协议</p>
+</li>
+<li><p>DNS是域名系统(DomainNameSystem)的缩写，该系统用于命名组织到域层次结构中的计算机和网络服务。域名是由圆点分开一串单词或缩写组成的，每一个域名都对应一个唯一的IP地址，在Internet上域名与IP地址之间是一对应的，DNS就是进行域名解析的服务器</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li><p>这是百度上面的说法，看起来比较难理解，我们可以通过我们自己来进行一个比方，我们每一个人都有一个身份证，计算机也是一样，它也有属于自己IP地址，也就是计算机的“身份证”。但是如果我们日常生活中呼喊别人是使用身份证号的话，那也太不方便记忆了，所以在我们日常生活中都有一个属于自己的名字，而DNS协议就是帮计算机取一个属于自己的名字，这样一来当我们访问网络上的服务器时，我们不必再去记忆那些冗长的IP地址，我们只需要记住这个服务器的“名字”，就可以直接访问它了，而这个“名字”也有专有名词，叫做域名</p>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202307281659174.png" alt="image-20230728165900951"></p>
+</li>
+<li><p>为了方便记忆，DNS的出现就极大的方便了人们的记忆，也使得网络发展愈发快速起来</p>
+</li>
+</ul>
+<h3 id="2-DNS域名"><a href="#2-DNS域名" class="headerlink" title="2.DNS域名"></a>2.DNS域名</h3><ul>
+<li><p>在从事网络工作时，了解一个协议对于网络从业者是一个非常重要的事情，那我们首先来查看一下百度的域名</p>
+</li>
+<li><p>如果将一个点看作一个部分的话，那么百度网址被分成了三个部分，而在网络中来看的话，确实也是如此，这三个部分从右往左分别是：顶级域名、二级域名、三级域名。有一些网址甚至会出现四级域名</p>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202307281722710.png" alt="image-20230728172220810"></p>
+</li>
+<li><p>而所有的域名都归13台服务器管辖，这些服务器被称为根域名服务器</p>
+</li>
+<li><p>根域名服务器是最高层次的域名服务器，所有的根域名服务器都知道所有的顶级域名服务器的IP地址</p>
+</li>
+<li><p>根域名服务器也是最重要的域名服务器，不管是哪个本地域名服务器，若要对因特网上任何一个域名进行解析，只要自己无法解析，就首先要求助于根域名服务器</p>
+</li>
+<li><p>因特网上有13个根域名服务器，尽管我们将这13个根域名服务器中的每个都视为单个服务器，但每个“服务器”实际上是冗余服务器的集群，以提供安全性和可靠性</p>
+<blockquote>
+<p>A 根：198.41.0.4              A.root-servers.net：美国加利福尼亚州洛杉矶<br>B 根：192.228.79.201     B.root-servers.net：美国弗吉尼亚州马里兰<br>C 根：192.33.4.12            C.root-servers.net：美国纽约州纽约市<br>D 根：199.7.91.13            D.root-servers.net：美国新泽西州贝德明斯特<br>E 根：192.203.230.10      E.root-servers.net：瑞典斯德哥尔摩<br>F 根：192.5.5.241             F.root-servers.net：美国加利福尼亚州棕榈泉<br>G 根：192.112.36.4          G.root-servers.net：荷兰阿姆斯特丹<br>H 根：198.97.190.53        H.root-servers.net：美国华盛顿州西雅图<br>I 根：192.36.148.17          I.root-servers.net：瑞士日内瓦<br>J 根：192.58.128.30          J.root-servers.net：日本东京<br>K 根：193.0.14.129          K.root-servers.net：美国密歇根州兰辛<br>L 根：199.7.83.42             L.root-servers.net：美国加利福尼亚州埃尔塞贡多<br>M 根：202.12.27.33         M.root-servers.net：美国弗吉尼亚州达勒姆</p>
+</blockquote>
+</li>
+</ul>
+<p>注意：域名服务器是用来管辖顶级域名的，如.com,.cn之类，它往往不会直接把查询的地址直接转换为IP地址，而是告诉本地域名服务器下一步应当找哪个顶级域名服务器查询</p>
+<h3 id="3-DNS-解析过程"><a href="#3-DNS-解析过程" class="headerlink" title="3.DNS 解析过程"></a>3.DNS 解析过程</h3><ul>
+<li>当我们主机访问一个域名的时候，他首先会向谁查找域名解析呢？国内DNS服务器？还是国外DNS服务器呢？</li>
+<li>其实都不是，它第一个寻找的地点就在本机寻找，他首先会查找自己DNS缓存，看看自己有没有这个网址的IP地址，再向网络中的网关寻求DNS解析，当网关无法解析的时候，他会访问国内的DNS服务器，当国内DNS服务器解析不了的时候，他会向根服务器寻求帮助，如果根都无法找到的话，这个请求将会被丢弃。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202307281839267.png" alt="image-20230728183912169"></p>
+<h1 id="二、常用的搜索信息网址"><a href="#二、常用的搜索信息网址" class="headerlink" title="二、常用的搜索信息网址"></a>二、常用的搜索信息网址</h1><ul>
+<li>在工作方面我们经常会使用一些网址来辅助我们工作，这里列举了一些常用的搜索信息网址</li>
+</ul>
+<p>+DNS解析</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://whois.cloud.tencent.com/domain">https://whois.cloud.tencent.com/domain</a><br><a target="_blank" rel="noopener" href="https://whois.chinaz.com/">https://whois.chinaz.com/</a><br><a target="_blank" rel="noopener" href="https://www.whois.com/whois/">https://www.whois.com/whois/</a><br><a target="_blank" rel="noopener" href="https://www.ip138.com/">https://www.ip138.com/</a><br><a target="_blank" rel="noopener" href="https://ip.cn/">https://ip.cn/</a><br><a target="_blank" rel="noopener" href="https://members.ip-api.com/">https://members.ip-api.com/</a></p>
+</blockquote>
+<ul>
+<li>子域名爆破</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://z.zcjun.com/">http://z.zcjun.com/</a><br><a target="_blank" rel="noopener" href="https://tools.yum6.cn/Tools/urlblast/">https://tools.yum6.cn/Tools/urlblast/</a></p>
+</blockquote>
+<ul>
+<li>安全漏洞网址</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.vulbox.com/">https://www.vulbox.com/</a><br><a target="_blank" rel="noopener" href="https://www.butian.net/">https://www.butian.net/</a></p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 bozhu17
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;bozhu17
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

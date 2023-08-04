@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <title>计算机基础 | bozhu17</title>
+        <meta name="author" content="bozhu17" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>BOZHU17</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;BOZHU17</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                <div class="article">
+    <div>
+        <h1>计算机基础</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/8/4
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="color: #00bcd4">学习</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="一、HTTP响应码"><a href="#一、HTTP响应码" class="headerlink" title="一、HTTP响应码"></a>一、HTTP响应码</h1><ul>
+<li>HTTP状态码【HTTP Status Code】是用来表示网页服务器响应状态的3位数字代码。每一个响应码的第一个数字代表了五种状态之一。</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="1xx响应码【临时响应】"><a href="#1xx响应码【临时响应】" class="headerlink" title="1xx响应码【临时响应】"></a>1xx响应码【临时响应】</h3><blockquote>
+<p>看到这种响应码的时候是服务器想要请求者进一步执行操作代码</p>
+</blockquote>
+<blockquote>
+<p>100【继续】：这个表示服务器已经收到了请求的第一部分，正在等待剩余部分传递过来<br>101【切换协议】：要求服务器切换协议，服务器已经收到并且准备切换</p>
+</blockquote>
+<h3 id="2xx响应码【成功】"><a href="#2xx响应码【成功】" class="headerlink" title="2xx响应码【成功】"></a>2xx响应码【成功】</h3><blockquote>
+<p>看到2开头的响应码就表明我们访问服务器已经成功了</p>
+</blockquote>
+<blockquote>
+<p>200【成功】：服务器已经成功处理了请求，通常这表示服务器已经提供了请求的页面<br>201【已创建】：请求服务器成功，并创建了新的资源<br>202【已接受】：请求已经被服务器知晓，但尚未处理<br>203【非授权信息】：服务器已成功处理了请求，但返回的信息可能来自另一来源<br>204【无内容】：服务器成功处理了请求，但没有内容返回<br>205【重置内容】：服务器成功处理了请求，但没有内容返回<br>206【部分内容】：服务器处理了部分git请求</p>
+</blockquote>
+<h3 id="3xx响应码【重定向】"><a href="#3xx响应码【重定向】" class="headerlink" title="3xx响应码【重定向】"></a>3xx响应码【重定向】</h3><blockquote>
+<p>看到3开头响应码，一般是要完成请求需要进一步的操作。</p>
+</blockquote>
+<blockquote>
+<p>300【多种选择】：针对请求，服务器可执行多种操作。服务器可根据请求者【user agent】选择一项操作，或提供操作列表供请求者选择。<br>301【永久移动】：请求的网页已永久移动到新位置。服务器返回此响应【对 GET 或 HEAD 请求的响应】时，会自动将请求者转到新位置。<br>302【临时移动】：服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。<br>303【查看其它位置】：请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。<br>304【未修改】：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。<br>305【使用代理】：请求者只能使用代理访问请求的网页。如果服务器返回此响应，还表示请求者应使用代理。<br>307【临时重定向】：服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p>
+</blockquote>
+<p>tips：306已经被废弃了</p>
+<h3 id="4xx响应码【请求可能出错】"><a href="#4xx响应码【请求可能出错】" class="headerlink" title="4xx响应码【请求可能出错】"></a>4xx响应码【请求可能出错】</h3><blockquote>
+<p>看到4开头的就应该清楚，可能是客户端请求或者格式出现问题</p>
+</blockquote>
+<blockquote>
+<p>400【错误请求】：表示客户端请求的语法错误，服务器无法理解，例如 url 含有非法字符、json 格式有问题<br>401【未授权】：请求要求身份验证。对于需要登录的网页，服务器可能返回此响应<br>402【保留】：表示保留，将来使用<br>403【禁止】：表示服务器理解请求客户端的请求，但是拒绝请求<br>404【未找到】：服务器无法根据客户端的请求找到资源<br>405【方法禁用】：禁用请求中指定的方法。<br>406【不接受】：无法使用请求的内容特性响应请求的网页<br>407【需要代理授权】：此状态代码与 401(未授权)类似，但指定请求者应当授权使用代理<br>408【请求超时】：服务器等候请求时发生超时<br>409【冲突】：服务器在完成请求时发生冲突。服务器必须在响应中包含有关冲突的信息<br>410【已删除】：如果请求的资源已永久删除，服务器就会返回此响应<br>411【需要有效长度】：服务器不接受不含有效内容长度标头字段的请求<br>412【未满足前提条件】：服务器未满足请求者在请求中设置的其中一个前提条件<br>413【请求实体过大】：表示响应实在太大。服务器拒绝处理当前请求，请求超过服务器所能处理和允许的最大值<br>414【请求的 URI 过长】：请求的URI过长，服务器无法处理<br>415【不支持的媒体类型】：请求的格式不受请求页面的支持<br>416【请求范围不符合要求】：客户端请求部分文档，但是服务器不能提供被请求的部分，则服务器会返回此状态代码。<br>417【未满足期望值】：服务器不能满足客户在请求中指定的请求头。<br>422【不可处理的实体】：请求格式正确，但是由于含有语义错误，无法响应。</p>
+</blockquote>
+<h3 id="5xx响应码【服务器】"><a href="#5xx响应码【服务器】" class="headerlink" title="5xx响应码【服务器】"></a>5xx响应码【服务器】</h3><blockquote>
+<p>看到5开头的响应码，我们应该清楚是服务器端出现了问题</p>
+</blockquote>
+<blockquote>
+<p>500【服务器内部错误】：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。<br>501【尚未实施】：服务器不具备完成请求的功能。例如，服务器无法识别请求方法时可能会返回此代码。<br>502【错误网关】：服务器作为网关或代理，从上游服务器收到无效响应。<br>503【服务不可用】：服务器目前无法使用(由于超载或停机维护)。通常，这只是暂时状态。<br>504【网关超时】：服务器作为网关或代理，但是没有及时从上游服务器收到请求。<br>505【HTTP 版本不受支持】：服务器不支持请求中所用的 HTTP 版本。</p>
+</blockquote>
+<h1 id="二、burp数据包结构"><a href="#二、burp数据包结构" class="headerlink" title="二、burp数据包结构"></a>二、burp数据包结构</h1><ul>
+<li>这里我们抓取一个数据包对数据结构进行分析</li>
+</ul>
+<blockquote>
+<p>POST:表示这个是post（第三小节将会讲解）请求<br>host：表示当前请求要发往的目的地，这里可以看到<br>user-Agent：表示客户机的环境，告诉服务器我从哪里来<br>Accpet：表示客户端支持的数据类型<br>Accpet-Language：表示客户端的语言环境<br>Accpet-Encoding：表示客户机支持的数据压缩格式<br>Content-Length：实体消息首部，用来指明接收方的消息主体大小<br>Origin：表明当前请求资源所在页面的协议和域名，用来说明请求从哪发起的<br>Referer：表示当前请求页面的完整路径：协议+域名+查询参数<br>cookie：存储在本地用户终端上的数据，由用户客户端计算机暂时性或永久保存的信息，一般为密码<br>Sec-Fetch-Dest：表示请求的目的地<br>Sec-Fetch-Mode：表明了一个请求的模式<br>Sec-Fetch-Site：表示一个请求发起者的来源和目标资源的关系</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202308041227368.png" alt="image-20230804122713036"></p>
+<h3 id="三、请求方式"><a href="#三、请求方式" class="headerlink" title="三、请求方式"></a>三、请求方式</h3><p>1、get请求</p>
+<blockquote>
+<p>get请求时用来获取数据的，只是用来查询数据，不对服务器的数据做任何的增删改查等操作</p>
+</blockquote>
+<pre><code>特点：
+get请求会把请求的参数附加在URL后面，这样会产生安全问题，如果是系统的登陆接口采用的get请求，需要对请求的参数做一个加密。
+get请求其实本身HTTP协议并没有限制它的URL大小，但是不同的浏览器对其有不同的大小长度限制
+</code></pre>
+<p>2、post请求：</p>
+<blockquote>
+<p>post请求一般是对服务器的数据做改变，常用来数据的提交，新增操作，以前这也是漏洞的重灾区。</p>
+</blockquote>
+<pre><code>特点：
+post请求的请求参数都是请求体中
+post请求本身HTTP协议也是没有限制大小的，限制它的是服务器的处理能力
+</code></pre>
+<p>3、put请求：</p>
+<blockquote>
+<p>put请求和post一样都会改变服务器的数据，但是put注重对数据更改，而post侧重对数据的增加</p>
+</blockquote>
+<p>4、delete请求：</p>
+<blockquote>
+<p>delete请求用来删除服务器的资源</p>
+</blockquote>
+<p>5、options请求：</p>
+<blockquote>
+<p>options请求属于预检请求，相当于tcp中的syn包，看看服务器是否会进行回复，如果回复了才回去发送其他请求</p>
+</blockquote>
+<p>6、head请求：</p>
+<blockquote>
+<p>类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头</p>
+</blockquote>
+<p>7、connect请求：</p>
+<blockquote>
+<p>预留给能够将连接改为管道方式的代理服务器</p>
+</blockquote>
+<p>8、trace请求：</p>
+<blockquote>
+<p>回显服务器收到的请求，主要用于测试或诊断</p>
+</blockquote>
+<p>9、patch 请求</p>
+<blockquote>
+<p>实体中包含一个表，表中说明与该url所表示的原内容的区别</p>
+</blockquote>
+<p>10 move</p>
+<blockquote>
+<p>请求服务器将指定的页面移至另一个网络地址</p>
+</blockquote>
+<p>11 COPY</p>
+<blockquote>
+<p>请求服务器将指定的页面拷贝至另一个网络地址</p>
+</blockquote>
+<p>12 LINK</p>
+<blockquote>
+<p>请求服务器建立链接关系</p>
+</blockquote>
+<p>13 UNLINK </p>
+<blockquote>
+<p>断开链接关系</p>
+</blockquote>
+<p>14 WRAPPED</p>
+<blockquote>
+<p>允许客户端发送经过封装的请求</p>
+</blockquote>
+<p>15 Extension-mothed </p>
+<blockquote>
+<p>在不改动协议的前提下，可增加另外的方法</p>
+</blockquote>
+<h3 id="四、操作系统常用的命令"><a href="#四、操作系统常用的命令" class="headerlink" title="四、操作系统常用的命令"></a>四、操作系统常用的命令</h3><p>1.常用命令</p>
+<blockquote>
+<p>cd：在不同的目录间切换，即更改当前工作目录<br>pwd：查看当前所在的工作目录<br>cat：在标准输出设备上显示文件内容</p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 bozhu17
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;bozhu17
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>

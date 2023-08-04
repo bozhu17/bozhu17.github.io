@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <title>markdown语法 | bozhu17</title>
+        <meta name="author" content="bozhu17" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>BOZHU17</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;BOZHU17</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                <div class="article">
+    <div>
+        <h1>markdown语法</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/8/4
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%95%99%E7%A8%8B/" style="color: #03a9f4">教程</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="markdown的使用说明"><a href="#markdown的使用说明" class="headerlink" title="markdown的使用说明"></a>markdown的使用说明</h1><p>一、标题</p>
+<ul>
+<li>我们在markdown语法中想要创建一个标题时，我们可以进入左下角的源代码模式，然后在空白处输入一个’#‘号，随后输入一个空格，在空格后面接上自己想要的标题即可，我们再退出源代码模式查看效果即可</li>
+</ul>
+<blockquote>
+<p>代码：</p>
+</blockquote>
+<pre><code class="text"># 一级标题
+## 二级标题
+### 三级标题
+...
+</code></pre>
+<span id="more"></span>
+
+<blockquote>
+<p>快捷键:<br>Ctrl+数字1~6可以快速将选中的文本调成对应级别的标题<br>Ctrl+0可以快速将选中的文本调成普通文本<br>Ctrl+加号&#x2F;减号对标题级别进行加减</p>
+</blockquote>
+<ul>
+<li><font color='red'> 注意：markdown语法中所有语法都需要在英文输入法下进行!</font></li>
+</ul>
+<p>二、分割线</p>
+<ul>
+<li>当我们想要创建一条分割线的时候，我们可以在主页输入 “—”加上回车就可以得到一条分割线</li>
+</ul>
+<blockquote>
+<p>代码：</p>
+</blockquote>
+<pre><code class="text">--- 或者是 ***
+</code></pre>
+<p>三、超链接</p>
+<ul>
+<li>超链接是我们最常用的一种方法，在markdown里面也是如此，我们可以直接输入网址，markdown会自动将网址变为超链接</li>
+</ul>
+<blockquote>
+<p>代码:</p>
+</blockquote>
+<pre><code class="text">www.baidu.com
+[百度一下](https://www.baidu.com)
+[百度一下](https://www.baidu.com &quot;https://www.baidu.com&quot;)
+</code></pre>
+<blockquote>
+<p>效果:<br><a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a><br><a target="_blank" rel="noopener" href="https://www.baidu.com/">百度一下</a></p>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+K</p>
+</blockquote>
+<p>四、列表</p>
+<ul>
+<li>1、无序列表</li>
+</ul>
+<blockquote>
+<p>代码:</p>
+</blockquote>
+<pre><code class="text">*/-/+ +空格
+</code></pre>
+<blockquote>
+<p>效果:<br>1.只有同一级别:</p>
+<ul>
+<li>苹果</li>
+<li>香蕉</li>
+<li>橘子</li>
+</ul>
+<p>2.子集类:</p>
+<ul>
+<li>一级分类<ul>
+<li>二级分类 <ul>
+<li>三级分类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+Shift+]</p>
+</blockquote>
+<ul>
+<li>2、有序列表</li>
+</ul>
+<blockquote>
+<p>代码:</p>
+</blockquote>
+<pre><code class="text">数字+.+空格
+</code></pre>
+<blockquote>
+<p>效果:</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>第一个标题</li>
+<li>第二个标题</li>
+<li>第三个标题</li>
+</ol>
+<ul>
+<li>子内容1</li>
+<li>子内容2</li>
+</ul>
+<ol start="4">
+<li>第四个标题</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+Shift+[</p>
+</blockquote>
+<p>五、字体</p>
+<ul>
+<li>粗体:  用一对双星号包裹，删除线:  用一对双飘号包裹，下划线:  用一对u标签包裹，斜体:  用一对单星号包裹，高亮:  用一对双等号包裹</li>
+</ul>
+<blockquote>
+<p>代码:</p>
+</blockquote>
+<pre><code class="text">**粗体**
+~~删除线~~
+&lt;u&gt;下划线&lt;/u&gt;
+*斜线*
+==这是高亮==
+</code></pre>
+<blockquote>
+<p>效果:<br><strong>粗体</strong><br><del>删除线</del><br><u>下划线</u><br><em>斜线</em><br>&#x3D;&#x3D;高亮&#x3D;&#x3D;</p>
+</blockquote>
+<blockquote>
+<p>快捷键:<br>加粗:  Ctrl+B<br>删除线:  Shift+Alt+5<br>下划线:  Ctrl+U</p>
+</blockquote>
+<p>六、图片插入</p>
+<ul>
+<li>可以直接对象要插入的图片进行一个复制粘贴，也可以通过下面的方法进行一个插入</li>
+</ul>
+<blockquote>
+<p>代码:</p>
+</blockquote>
+<pre><code class="text">![不显示的文字](图片路径 &quot;图片标题&quot;)
+</code></pre>
+<blockquote>
+<p>快捷键:  Ctrl+Shift+I</p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 bozhu17
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;bozhu17
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>
