@@ -254,7 +254,7 @@
 
 <div class="post">
     <a href="/2023/08/04/nmap%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/">
-        <h2 class="post-title">nmap基本用法和进阶用法</h2>
+        <h2 class="post-title">nmap</h2>
     </a>
     <div class="category-and-date">
         
@@ -270,11 +270,58 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h1><ul>
-<li>通常不建议在日常使用中直接使用root账号，是因为root账号具有完全的系统管理权限，可以对系统进行任何操作，包括删除关键文件、修改系统设置等。直接使用root账号可能会导致意外的系统损坏或安全问题。相反，建议以普通用户账号登录系统，并根据需要使用特权命令时，使用sudo命令来获取临时的管理员权限。使用sudo命令可以限制在特定命令或操作上获取管理员权限，同时还可以记录和追踪管理员操作，提供了额外的安全性。</li>
+            <h1 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h1><p>1、Nmap介绍<br>Nmap，也就是Network Mapper，中文为“网络映射器”。Nmap是一款开源的网络探测和安全审核的工具，它的设计目标是快速地扫描大型网络。它是网络管理员必用的软件之一，以及用以评估网络系统保安。</p>
+<h2 id="1、Nmap基本功能"><a href="#1、Nmap基本功能" class="headerlink" title="1、Nmap基本功能"></a>1、Nmap基本功能</h2><ul>
+<li>探测一组主机是否在线</li>
+<li>扫描主机端口，嗅探所提供的网络服务</li>
+<li>推断主机所用的操作系统</li>
+</ul>
+<h2 id="2、nmap注意事项"><a href="#2、nmap注意事项" class="headerlink" title="2、nmap注意事项"></a>2、nmap注意事项</h2><p>通常不建议在日常使用中直接使用root账号，是因为root账号具有完全的系统管理权限，可以对系统进行任何操作，包括删除关键文件、修改系统设置等。直接使用root账号可能会导致意外的系统损坏或安全问题。相反，建议以普通用户账号登录系统，并根据需要使用特权命令时，使用sudo命令来获取临时的管理员权限。使用sudo命令可以限制在特定命令或操作上获取管理员权限，同时还可以记录和追踪管理员操作，提供了额外的安全性。</p>
+<h2 id="3、nmap基本命令"><a href="#3、nmap基本命令" class="headerlink" title="3、nmap基本命令"></a>3、nmap基本命令</h2><h3 id="（1）、-sP命令"><a href="#（1）、-sP命令" class="headerlink" title="（1）、-sP命令"></a>（1）、-sP命令</h3><ul>
+<li>在nmap中提供了很多的扫描方式，其中ping就是最常用的一种方式。在扫描时只需要加入-sP就可以开启ping扫描。</li>
+</ul>
+<pre><code>nmap -sP IP地址段
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202308071301988.png" alt="image-20230807130110650"></p>
+<p>优点：不会返回太多无用的结果造成对结果的分析，并且比较高效。<br>缺点：部分设备有时扫不到，需多扫描几次。</p>
+<h3 id="（2）、-P0命令"><a href="#（2）、-P0命令" class="headerlink" title="（2）、-P0命令"></a>（2）、-P0命令</h3><ul>
+<li>ping扫描虽然简单，但是当开启了禁ping后，以上方法便行不通了。这时我们便可以用无ping扫描。只需要添加参数-p0即可实现。</li>
+</ul>
+<pre><code>nmap -p0 IP地址段
+</code></pre>
+<p>优点：可避免防火墙的发现，可以详细的看到设备开启了那些端口。</p>
+<h3 id="（3）、-PS命令和-PA命令"><a href="#（3）、-PS命令和-PA命令" class="headerlink" title="（3）、-PS命令和-PA命令"></a>（3）、-PS命令和-PA命令</h3><ul>
+<li><p>TCP Syn Ping即传输层的TCP&#x2F;IP扫描，通过发送和接收报文的形式进行扫描，在这种情况下每个端口都会轻易的被发现。</p>
+</li>
+<li><p>很多防火墙会封锁SYN报文，所以nmap提供了SYN和ACK两种扫描方式，这两者的结合大大的提高了逃避防火墙的概率。</p>
+</li>
+</ul>
+<pre><code>nmap -PS -PA IP地址段
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202308071303891.png" alt="image-20230807130305704"></p>
+<p>优点：扫描更加精确</p>
+<h3 id="（4）、-sn命令"><a href="#（4）、-sn命令" class="headerlink" title="（4）、-sn命令"></a>（4）、-sn命令</h3><ul>
+<li>扫描网络中IP的时候：-sn icmp回显请求，443tcp syn，80tcp ack，icmp时间戳请求，当没有使+ 没有使用特权模式下进行扫描时，他只会使用clinet调用，发送syn扫描443，80端口</li>
+<li>在本地进行扫描的时候：并且使用特权模式的时候，nmap发送的是arp请求，自然没有tcp和icmp</li>
 </ul>
 <pre><code>sudo nmap -sn ip地址段
 </code></pre>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202308071304355.png" alt="image-20230807130404946"></p>
+<p>-sn 语句可以与其他探测类语句一起使用</p>
+<p>扫描本地网络时可以加上这样一句：–send-ip 因为在本地网络中可能不会响应arp广播包，而icmp时间戳更加可靠，可以帮我们发现潜藏在网络中的主机</p>
+<h3 id="2、-sS-sT命令"><a href="#2、-sS-sT命令" class="headerlink" title="2、-sS&#x2F;-sT命令"></a>2、-sS&#x2F;-sT命令</h3><pre><code>sudo nmap -sS/-sT --min-rate 10000 -p- 目标主机 -oA 存放数据文件地址
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202308071311118.png" alt="image-20230807131126805"></p>
+<p>-sS 和 -sT的区别：大写的S是像每个端口发送tcp的请求包，在得到回复包为ack包时则表明主机端口启用，而得到复位包时则表明该端口，没有启用。而大写的T则表明使用完整的tcp三次握手协议，来判断端口是否存在。大写的S 一般是用于快速的扫描，但是这种扫描不准确，因为有些防火墙会查询到这是个不完整的tcp握手，从而将这个数据包进行丢弃，从而使我们错过一些端口，从而对目标主机产生误判。</p>
+<p>–min-rate  最慢的扫描每秒发包速率为多少</p>
+<p>-p- -p是指定扫描的端口，而-p-是简化的表示扫描所有的端口，也就是0-65535个端口，nmap默认只扫描常用的一千个端口</p>
+<h3 id="3、数据整理"><a href="#3、数据整理" class="headerlink" title="3、数据整理"></a>3、数据整理</h3><p>整理得到的数据：<br>grep open 文件存放位置.nmap | awk -F’&#x2F;‘ ‘{print $1}’ 这条语句可以帮我们提取可以用的端口号</p>
+<p>grep open 文件存放位置.nmap | awk -F’&#x2F;‘ ‘{print $1}’ | paste -sd ‘,’  这条语句可以将可用的端口整理到一行，并用逗号进行分隔</p>
+<p>ports&#x3D;(grep open 文件存放位置.nmap |awk -F’&#x2F;‘ ‘{print $1}’ | paste -sd ‘,’) 这条语句可以将刚刚获取到的端口存储到ports这个变量中</p>
+<h3 id="4、端口扫描"><a href="#4、端口扫描" class="headerlink" title="4、端口扫描"></a>4、端口扫描</h3><pre><code>sudo nmap -sT -sV -sC -O -p(这里一定要小写)你需要扫描的端口号 目标IP地址 -oA 你想要存放文件的位置
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/bozhu17/img/main/img/202308071315475.png" alt="image-20230807131554352"></p>
+<p>-sT：指定以TCP进行扫描，-sV：探测各服务的版本，-sC：用默认的脚本进行扫描，-O：探测操作系统的版本</p>
 
             
         </div>
@@ -414,7 +461,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E5%B7%A5%E5%85%B7/" style="color: #ffa2c4">工具</a>
+            <a href="/tags/%E5%B7%A5%E5%85%B7/" style="color: #00a596">工具</a>
         </span>
         
     </div>
@@ -456,7 +503,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%95%99%E7%A8%8B/" style="color: #03a9f4">教程</a>
+            <a href="/tags/%E6%95%99%E7%A8%8B/" style="color: #00bcd4">教程</a>
         </span>
         
     </div>
@@ -498,7 +545,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%95%99%E7%A8%8B/" style="color: #00a596">教程</a>
+            <a href="/tags/%E6%95%99%E7%A8%8B/" style="color: #00bcd4">教程</a>
         </span>
         
     </div>
